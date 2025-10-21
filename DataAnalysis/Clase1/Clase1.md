@@ -4,9 +4,10 @@
 
 ## Librería math
 - para usar las librerías hacemos:
-  `import math as m
+  ``` python
+  import math as m
   x = m.cos(m.pi)
-  print(x)`
+  print(x)```
 
 - las librerias que no son de python hay que cargarnos esas liberias
   - en la terminal hacemos install (eg: install pandas o xlrd)
@@ -18,6 +19,7 @@
 - nos permite sistematizar la conversión de un archivo de información en los tipos de datos que python maneja -> nosotros lo utilizamos para leer archivos conn info en filas/columnas como excel o csv
 - se usa mucho en data science
 - puede agregar columnas o eliminarlas
+
  `import pandas as pd
   url = ""
   df = pd.read_excel(url)
@@ -52,6 +54,23 @@
 ### dataFrame.to_excel("miArchivo.xlsx")
 - te convierte el dataframe a ese archivo
 
+## DataFrames (de Pandas)
+### Creación de DataFrames
+`import pandas as pd
+import random as n
+
+data = {
+    "usuario": ["pato", "nato", "gato"],
+    "pass": ["abc123", "contra", "xasda"],
+    "random": []
+}
+
+for i in range(3): //3 iteraciones osea de 0 a 2
+
+df = pd.DataFrame(data)
+print(df)
+`
+
 # Interesante de los desafíos
 archivo = pd.read_excel("Tabla1.xlsx", index_col = "Puntos")
 data = archivo.to_dict("index")
@@ -76,3 +95,5 @@ for punto in ordenada:
       print(data[punto]["Equipo"] + " tiene a siguiente diferencia de goles: " + str(data[punto]["Goles a favor"] - data[punto]["Goles en contra"]))
 => 
 - lo interesante aca es que no puedo cambiar data con ordenada porque lowkey cuando hago for in data teniendo en cuenta que lo indexo con "Puntos" me toma el nombre data como si fuera un array con valores que son los Puntos por ende cuando hago ordenada, (ordenar de mayor a menor), lo que hace es crearme un arreglo con los puntos ordenados
+
+
