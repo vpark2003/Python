@@ -11,16 +11,18 @@
 
 - las librerias que no son de python hay que cargarnos esas liberias
   - en la terminal hacemos install (eg: install pandas o xlrd)
-  `import pandas as pd
+  ``` python
+  import pandas as pd
   df = pd.read_excel("")
-  printf(df)`
+  printf(df)```
 
 ## Librería pandas
 - nos permite sistematizar la conversión de un archivo de información en los tipos de datos que python maneja -> nosotros lo utilizamos para leer archivos conn info en filas/columnas como excel o csv
 - se usa mucho en data science
 - puede agregar columnas o eliminarlas
 
- `import pandas as pd
+ ``` python
+  import pandas as pd
   url = ""
   df = pd.read_excel(url)
   printf(df) //estructura de datos nativa de pandas
@@ -35,7 +37,8 @@
   // dependiendo lo que queremos tener o agarrar es lo que metemos dentro de to_dict
   df = pd.read_excel("Datos.xlsx", index_col = "legajo")
   alumno = df.loc[64498] //osea lo de antes te lo organiza o divide por legajo
-  print(alumno) //esto tambien es lowkey un array de la info de ese alumno con ese legajo`
+  print(alumno) //esto tambien es lowkey un array de la info de ese alumno con ese legajo
+  ```
 ### .to_dict("List")
 - si hacemos datos = archivo.to_dict("List") -> almacenamos cada columna como una lista
 - los indices no son numeros sino son el nombre de cada columna tipo datos['Apellido']
@@ -56,7 +59,8 @@
 
 ## DataFrames (de Pandas)
 ### Creación de DataFrames
-`import pandas as pd
+``` python 
+import pandas as pd
 import random as n
 
 data = {
@@ -66,23 +70,26 @@ data = {
 }
 
 for i in range(3): //3 iteraciones osea de 0 a 2
-
-df = pd.DataFrame(data)
-print(df)
-`
+  data["random"].append( n.randint(1, 30)) //te mete en esa fila los siguientes valores
+print(data)
+df = pd.DataFrame(data) // te da un dataframe de data
+print(df)  //te lo imprime como un dataframe
+```
 
 # Interesante de los desafíos
+``` python 
 archivo = pd.read_excel("Tabla1.xlsx", index_col = "Puntos")
 data = archivo.to_dict("index")
 puntos = archivo.to_dict("List")
 print("El campeón es: " + data[max(data)]["Equipo"])
 print("El perdedor es: " + data[min(data)]["Equipo"])
+```
 => 
 El campeón es: Equipo A
 El perdedor es: Equipo D
 
 ----------------------------------
-
+``` python
 archivo = pd.read_excel("Tabla1.xlsx", index_col = "Puntos")
 data = archivo.to_dict("index")
 print(data)
@@ -93,6 +100,7 @@ print(ordenada)
 for punto in ordenada:
     if punto > 20:
       print(data[punto]["Equipo"] + " tiene a siguiente diferencia de goles: " + str(data[punto]["Goles a favor"] - data[punto]["Goles en contra"]))
+```
 => 
 - lo interesante aca es que no puedo cambiar data con ordenada porque lowkey cuando hago for in data teniendo en cuenta que lo indexo con "Puntos" me toma el nombre data como si fuera un array con valores que son los Puntos por ende cuando hago ordenada, (ordenar de mayor a menor), lo que hace es crearme un arreglo con los puntos ordenados
 
