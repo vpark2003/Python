@@ -21,10 +21,10 @@ print(data[2])            # Accedemos a los datos de una fila
 print(data[2]['Nombre'])  # Accedemos a la columna 'Nombres' de la fila con índice 2
 
 # Indicamos que la columna de indexación será apellido.
-archivo = pd.read_excel("archivo.xslsx", "Apellido")
+archivo = pd.read_excel("archivo.xslsx", "Apellido") # esto te da un dataframe
 print(archivo)
 
-data = archivo.to_dict("index")
+data = archivo.to_dict("index") #esto un diccionario
 # "index" significa que vamos a obtener el contenido como diccionarios
 # donde la clave es algun campo de cada fila, en este caso la clave de los
 # diccionarios será la clave "Apellido"
